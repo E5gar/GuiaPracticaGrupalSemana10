@@ -1,10 +1,13 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 import sys
 import json
 from pathlib import Path
+from colorama import init, Fore, Style
 from models.producto import Producto, Electronico, Libro
 from utils.validators import validar_sku, validar_categoria, validar_numero, validar_texto
 from utils.exceptions import ValidationError, NotFoundError, MarketplaceError
+
+init(autoreset=True)
 
 
 def seed_catalogo() -> dict[str, Producto]:
@@ -77,7 +80,7 @@ def exportar_web_data(inventario: dict[str, Producto]):
 
 def menu() -> str:
     print("\n" + "=" * 58)
-    print("  BRAGG ACADEMIC MARKETPLACE | IS093A SEMANA 10")
+    print("  HUANCA ACADEMIC MARKETPLACE | IS093A SEMANA 10")
     print("=" * 58)
     print("  [1] Registrar nuevo material educativo")
     print("  [2] Listar catálogo polimórfico (CLI)")
@@ -114,7 +117,7 @@ def registrar_producto(inventario: dict[str, Producto]):
 
     inventario[sku] = prod
     exportar_web_data(inventario)
-    print(f"\n✅ Producto {sku} creado con éxito.")
+    print(f"\n{Fore.GREEN}[OK]{Style.RESET_ALL} Producto {sku} creado con éxito.")
 
 
 def listar_productos(inventario: dict[str, Producto]):
@@ -166,7 +169,7 @@ def despachar_producto(inventario: dict[str, Producto]):
     cant = int(validar_numero(input(f"Cantidad a retirar (disponible {item.stock}) > "), tipo=int, min_val=1, campo="cantidad"))
     item.reducir_stock(cant)
     exportar_web_data(inventario)
-    print(f"✅ Despacho completado. Nuevo stock de {item.sku}: {item.stock} unidades.")
+    print(f"\n{Fore.GREEN}[OK]{Style.RESET_ALL} Despacho completado. Nuevo stock de {item.sku}: {item.stock} unidades.")
 
 
 def main():
@@ -186,20 +189,20 @@ def main():
                 despachar_producto(inventario)
             elif opcion == "5":
                 exportar_web_data(inventario)
-                print("✅ Catálogo web sincronizado en 'web/productos.json'.")
+                print(f"{Fore.GREEN}[OK]{Style.RESET_ALL} Catálogo web sincronizado en 'web/productos.json'.")
             elif opcion == "6":
-                print("\nFinalizando sesión en Bragg Academic Marketplace. ¡Éxito académico!\n")
+                print("\nFinalizando sesión en Huanca Academic Marketplace. ¡Éxito académico!\n")
                 break
             else:
                 raise ValidationError("Opción numérica no reconocida en el menú", campo="opción")
         except ValidationError as err:
-            print(f"\n⚠️  EXCEPCIÓN CAPTURADA: {err}")
+            print(f"\n{Fore.YELLOW}[ADVERTENCIA]{Style.RESET_ALL} {err}")
         except NotFoundError as err:
-            print(f"\n🔍 BÚSQUEDA FALLIDA: {err}")
+            print(f"\n{Fore.CYAN}[NO ENCONTRADO]{Style.RESET_ALL} {err}")
         except MarketplaceError as err:
-            print(f"\n🛑 ERROR DE DOMINIO: {err}")
+            print(f"\n{Fore.RED}[ERROR DOMINIO]{Style.RESET_ALL} {err}")
         except Exception as err:
-            print(f"\n❌ ERROR INESPERADO DEL SISTEMA: {type(err).__name__} - {err}")
+            print(f"\n{Fore.RED}[ERROR CRITICO]{Style.RESET_ALL} {type(err).__name__} - {err}")
         else:
             pass
         finally:
