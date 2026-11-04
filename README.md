@@ -136,6 +136,8 @@ Seleccione opción [1-6] > 2
 Total ítems activos: 6
 ```
 
+![Caso exitoso: listado polimórfico y liquidación](docs/capturas/01_caso_exitoso.png)
+
 ### 5.2. Excepción 1 Capturada: `ValidationError` (Formato de SKU o Precio Fuera de Rango)
 ```text
 --- REGISTRO DE PRODUCTO ---
@@ -145,6 +147,8 @@ Código SKU (Ej: ELEC-500, LIB-300) > cod-invalido
 ⚠️  EXCEPCIÓN CAPTURADA: [ERR_VALIDACION] Campo 'SKU': Formato inválido. Debe seguir el patrón 'PRE-1234' (Ej: ELEC-101, LIB-204)
 ```
 
+![Excepción ValidationError capturada](docs/capturas/02_validation_error.png)
+
 ### 5.3. Excepción 2 Capturada: `NotFoundError` (Búsqueda de Material Inexistente)
 ```text
 --- CONSULTA DE PRECIO FINAL & DESCUENTOS ---
@@ -152,6 +156,8 @@ Ingrese el SKU a liquidar > ELEC-999
 
 🔍 BÚSQUEDA FALLIDA: [ERR_NO_ENCONTRADO] No se encontró Material Didáctico con identificador 'ELEC-999'
 ```
+
+![Excepción NotFoundError capturada](docs/capturas/03_not_found_error.png)
 
 ---
 
