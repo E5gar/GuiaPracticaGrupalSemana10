@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bragg Academic | E-Learning &amp; Laboratory Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cr-yellow: #ffe100;
+      --cr-yellow-light: #fff8ad;
+      --cr-red: #ed1c24;
+      --cr-red-light: #ffeee4;
+      --cr-black: #000000;
+      --cr-black-50: rgba(0, 0, 0, 0.5);
+      --cr-black-10: rgba(0, 0, 0, 0.1);
+      --cr-white: #ffffff;
+      --cr-subtle: rgba(125, 125, 125, 0.1);
+      --border-dashed: 0.8px dashed rgba(0, 0, 0, 0.5);
+      --border-dashed-white: 0.8px dashed rgba(255, 255, 255, 0.6);
+      --font-serif: "Playfair Display", Georgia, serif;
+      --font-sans: "Plus Jakarta Sans", "Helvetica Neue", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--cr-black);
+      background-color: var(--cr-white);
+      line-height: 1.35;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .announcement-bar {
+      background-color: var(--cr-yellow);
+      color: var(--cr-black);
+      padding: 10px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      font-weight: 750;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: var(--border-dashed);
+    }
+
+    .marquee-track {
+      display: inline-block;
+      animation: marquee 32s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    header {
+      background: var(--cr-white);
+      border-bottom: var(--border-dashed);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--cr-black);
+    }
+
+    .brand-badge {
+      background: var(--cr-red);
+      color: var(--cr-white);
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 22px;
+      padding: 4px 12px;
+      border-radius: 4px;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-title {
+      font-size: 16px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--cr-black);
+      padding: 8px 12px;
+      border-radius: 40px;
+      transition: background 0.2s ease;
+    }
+
+    .nav-link:hover {
+      background: var(--cr-black-10);
+    }
+
+    .btn-cart-status {
+      background: var(--cr-yellow);
+      border: none;
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-weight: 750;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-section {
+      background: var(--cr-red-light);
+      border-bottom: var(--border-dashed);
+      padding: 64px 24px;
+    }
+
+    .hero-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--cr-yellow);
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-weight: 750;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      border: var(--border-dashed);
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 58px;
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+
+    .hero-desc {
+      font-size: 18px;
+      line-height: 1.45;
+      color: rgba(0, 0, 0, 0.85);
+      margin-bottom: 28px;
+      max-width: 620px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      border-top: var(--border-dashed);
+      padding-top: 24px;
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--cr-black-50);
+    }
+
+    .hero-card {
+      background: var(--cr-white);
+      border: var(--border-dashed);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      font-size: 12px;
+      font-weight: 750;
+      text-transform: uppercase;
+    }
+
+    .filter-section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pill-btn {
+      background: transparent;
+      border: var(--border-dashed);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pill-btn.active, .pill-btn:hover {
+      background: var(--cr-yellow);
+      border-color: var(--cr-black);
+    }
+
+    .catalog-section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 28px;
+    }
+
+    .product-card {
+      background: var(--cr-white);
+      border: var(--border-dashed);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-media {
+      position: relative;
+      height: 250px;
+      background: #f7f7f7;
+      border-bottom: var(--border-dashed);
+      overflow: hidden;
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .card-img {
+      transform: scale(1.04);
+    }
+
+    .card-badge-top {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--cr-black);
+      color: var(--cr-white);
+      font-size: 11px;
+      font-weight: 750;
+      padding: 4px 10px;
+      border-radius: 40px;
+      text-transform: uppercase;
+    }
+
+    .card-badge-sku {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: var(--cr-white);
+      color: var(--cr-black);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: var(--border-dashed);
+    }
+
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      color: var(--cr-black);
+    }
+
+    .card-spec {
+      font-size: 13px;
+      color: var(--cr-black-50);
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 0.6px dotted var(--cr-subtle);
+      padding-bottom: 4px;
+    }
+
+    .price-box {
+      background: var(--cr-yellow-light);
+      border: var(--border-dashed);
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .price-base {
+      font-size: 13px;
+      text-decoration: line-through;
+      color: var(--cr-black-50);
+    }
+
+    .price-final {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--cr-red);
+    }
+
+    .stock-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .stock-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #28a745;
+    }
+
+    .stock-dot.low {
+      background: #ffc107;
+    }
+
+    .card-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .btn-action {
+      background: var(--cr-yellow);
+      border: none;
+      padding: 12px;
+      border-radius: 40px;
+      font-weight: 750;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s ease;
+    }
+
+    .btn-action:hover {
+      background: var(--cr-red);
+      color: var(--cr-white);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--cr-white);
+      max-width: 480px;
+      width: 100%;
+      border-radius: 8px;
+      border: var(--border-dashed);
+      padding: 28px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    footer {
+      background: var(--cr-red);
+      color: var(--cr-white);
+      border-top: var(--border-dashed-white);
+      padding: 48px 24px;
+    }
+
+    .footer-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+      }
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: 38px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="announcement-bar">
+    <div class="marquee-track">
+      INICIO DE SEMESTRE ACADÉMICO 2026 • 15% DCTO EN TEXTOS Y MANUALES UNCP • GARANTÍA EXTENDIDA ESTUDIANTIL EN HARDWARE • STOCK ASEGURADO PARA LABORATORIOS FIS • INICIO DE SEMESTRE ACADÉMICO 2026 • 15% DCTO EN TEXTOS Y MANUALES UNCP • GARANTÍA EXTENDIDA ESTUDIANTIL EN HARDWARE • STOCK ASEGURADO PARA LABORATORIOS FIS • 
+    </div>
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <a href="#" class="brand">
+        <span class="brand-badge">BRAGG</span>
+        <span class="brand-title">FIS ACADEMIC LABS</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#catalogo" class="nav-link">Catálogo</a>
+        <a href="#beneficios" class="nav-link">Garantía Estudiantil</a>
+        <a href="#lab" class="nav-link">Instrumental</a>
+        <button class="btn-cart-status" onclick="abrirResumen()">
+          <span>🛒 Inventario Activo</span>
+          <span id="badge-total-items">(6)</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-container">
+      <div>
+        <span class="hero-tag">Distribución Universitaria Autorizada</span>
+        <h1 class="hero-title">Where Feel Good Meets Academic Rigor.</h1>
+        <p class="hero-desc">
+          Plataforma didáctica para estudiantes e investigadores de la Universidad Nacional del Centro del Perú. Suministros de instrumentación de laboratorio, microelectrónica y textos técnicos con cálculo polimórfico de tasas y beneficio de inicio de ciclo.
+        </p>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Stock Verificado</div>
+          </div>
+          <div>
+            <div class="stat-number">18%</div>
+            <div class="stat-label">IGV Desglosado</div>
+          </div>
+          <div>
+            <div class="stat-number">24M</div>
+            <div class="stat-label">Garantía Lab</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <span>Mixin de Promoción Activa</span>
+          <span style="color: var(--cr-red);">Ciclo 2026-I</span>
+        </div>
+        <h3 style="font-family: var(--font-serif); font-size: 22px; margin-bottom: 12px;">DescuentoMixin Aplicado</h3>
+        <p style="font-size: 14px; color: var(--cr-black-50); margin-bottom: 20px;">
+          Todos los libros de texto universitarios cuentan con exención de arancel y 12% de descuento directo. Los dispositivos electrónicos protegen el stock calculando costos de despacho ponderados.
+        </p>
+        <button class="btn-action" style="width: 100%;" onclick="filtrar('all')">Explorar Todo el Material</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="filter-section" id="catalogo">
+    <div>
+      <h2 style="font-family: var(--font-serif); font-size: 32px;">Material Educativo Disponible</h2>
+      <p style="font-size: 14px; color: var(--cr-black-50);">Precios calculados con el algoritmo polimórfico en tiempo real.</p>
+    </div>
+    <div class="filter-pills">
+      <button class="pill-btn active" onclick="filtrar('all', this)">Todos</button>
+      <button class="pill-btn" onclick="filtrar('Electronico', this)">Electrónicos &amp; Hardware</button>
+      <button class="pill-btn" onclick="filtrar('Libro', this)">Libros de Texto &amp; Tesis</button>
+    </div>
+  </section>
+
+  <main class="catalog-section">
+    <div class="product-grid" id="grid-productos"></div>
+  </main>
+
+  <div class="modal-overlay" id="modal-detalle">
+    <div class="modal-card">
+      <button class="modal-close" onclick="cerrarModal()">&times;</button>
+      <div id="modal-contenido"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div>
+        <div class="footer-brand">BRAGG FIS UNCP</div>
+        <p style="font-size: 14px; max-width: 480px; opacity: 0.9;">
+          Facultad de Ingeniería de Sistemas — Asignatura: Desarrollo de Aplicaciones Web (IS093A). Sistema de gestión de productos POO implementado con Python 3.12 y sistema de diseño editorial Bragg.
+        </p>
+      </div>
+      <div>
+        <h4 style="font-size: 16px; margin-bottom: 12px; font-weight: 750;">Arquitectura POO</h4>
+        <ul style="list-style: none; font-size: 14px; opacity: 0.9; line-height: 2;">
+          <li>• Clase Base Producto</li>
+          <li>• Subclase Electronico</li>
+          <li>• Subclase Libro</li>
+          <li>• DescuentoMixin (C3 MRO)</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 16px; margin-bottom: 12px; font-weight: 750;">Políticas</h4>
+        <ul style="list-style: none; font-size: 14px; opacity: 0.9; line-height: 2;">
+          <li>• Despacho seguro de instrumental</li>
+          <li>• Validación vía @property</li>
+          <li>• Excepciones tipadas de dominio</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const productosLocales = [
+      {
+        sku: "ELEC-101",
+        nombre: "Calculadora Programable Texas Instruments TI-Nspire CX II CAS",
+        tipo: "Electronico",
+        precio_base: 940.0,
+        stock: 18,
+        garantia_meses: 24,
+        garantia_estudiantil: true,
+        costo_envio: 12.0,
+        precio_final: 1009.08,
+        imagen_url: "https://images.unsplash.com/photo-1594980596870-8aa52a78d8cd?w=800"
+      },
+      {
+        sku: "ELEC-102",
+        nombre: "Tableta Digitalizadora Wacom Intuos Pro Paper Edition Lab",
+        tipo: "Electronico",
+        precio_base: 1450.0,
+        stock: 35,
+        garantia_meses: 12,
+        garantia_estudiantil: true,
+        costo_envio: 12.0,
+        precio_final: 1478.43,
+        imagen_url: "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=800"
+      },
+      {
+        sku: "ELEC-103",
+        nombre: "Kit de Laboratorio FPGA Altera Cyclone IV + Osciloscopio Digital",
+        tipo: "Electronico",
+        precio_base: 2150.0,
+        stock: 4,
+        garantia_meses: 36,
+        garantia_estudiantil: false,
+        costo_envio: 25.0,
+        precio_final: 2562.00,
+        imagen_url: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800"
+      },
+      {
+        sku: "LIB-201",
+        nombre: "Sistemas de Control para Ingeniería 8va Edición (Nise)",
+        tipo: "Libro",
+        precio_base: 180.0,
+        stock: 45,
+        autor: "Norman S. Nise",
+        tipo_libro: "universitario",
+        precio_final: 142.56,
+        imagen_url: "https://images.unsplash.com/photo-1532012164546-f432f2e3edd4?w=800"
+      },
+      {
+        sku: "LIB-202",
+        nombre: "Manual de Prácticas de Redes Neuronales y Microcontroladores",
+        tipo: "Libro",
+        precio_base: 85.0,
+        stock: 120,
+        autor: "Facultad de Ingeniería de Sistemas UNCP",
+        tipo_libro: "universitario",
+        precio_final: 67.32,
+        imagen_url: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800"
+      },
+      {
+        sku: "LIB-203",
+        nombre: "Clean Code: A Handbook of Agile Software Craftsmanship",
+        tipo: "Libro",
+        precio_base: 140.0,
+        stock: 15,
+        autor: "Robert C. Martin",
+        tipo_libro: "literatura",
+        precio_final: 133.00,
+        imagen_url: "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800"
+      }
+    ];
+
+    let catalogoActual = productosLocales;
+
+    async function cargarCatalogo() {
+      try {
+        const respuesta = await fetch("productos.json");
+        if (respuesta.ok) {
+          const datos = await respuesta.json();
+          if (datos && datos.length > 0) {
+            catalogoActual = datos;
+          }
+        }
+      } catch (e) {
+      }
+      renderizarProductos(catalogoActual);
+    }
+
+    function renderizarProductos(lista) {
+      const contenedor = document.getElementById("grid-productos");
+      contenedor.innerHTML = "";
+      document.getElementById("badge-total-items").innerText = `(${lista.length})`;
+
+      lista.forEach(item => {
+        const tarjeta = document.createElement("article");
+        tarjeta.className = "product-card";
+
+        const esBajoStock = item.stock <= 5;
+        const categoriaTag = item.tipo === "Electronico" ? "Gadget / Hardware" : "Material Bibliográfico";
+
+        tarjeta.innerHTML = `
+          <div class="card-media">
+            <img src="${item.imagen_url}" alt="${item.nombre}" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800'">
+            <span class="card-badge-top">${item.tipo}</span>
+            <span class="card-badge-sku">${item.sku}</span>
+          </div>
+          <div class="card-body">
+            <div>
+              <h3 class="card-title">${item.nombre}</h3>
+              <div class="card-spec">
+                <div class="spec-item">
+                  <span>Segmento</span>
+                  <strong>${categoriaTag}</strong>
+                </div>
+                ${item.tipo === "Electronico" ? `
+                  <div class="spec-item">
+                    <span>Garantía Oficial</span>
+                    <strong>${item.garantia_meses} meses</strong>
+                  </div>
+                  <div class="spec-item">
+                    <span>Beneficio Semestral</span>
+                    <strong>${item.garantia_estudiantil ? "10% Descuento Lab" : "Sin bono"}</strong>
+                  </div>
+                ` : `
+                  <div class="spec-item">
+                    <span>Autoría</span>
+                    <strong>${item.autor}</strong>
+                  </div>
+                  <div class="spec-item">
+                    <span>Clasificación</span>
+                    <strong>${item.tipo_libro}</strong>
+                  </div>
+                `}
+              </div>
+            </div>
+
+            <div>
+              <div class="price-box">
+                <div class="price-row">
+                  <span class="price-base">S/ ${parseFloat(item.precio_base).toFixed(2)}</span>
+                  <span class="price-final">S/ ${parseFloat(item.precio_final).toFixed(2)}</span>
+                </div>
+                <div style="font-size: 11px; color: var(--cr-black-50); margin-top: 4px;">
+                  ${item.tipo === "Electronico" ? "+18% IGV y envío seguro ponderado" : "Incluye deducción por texto universitario"}
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                <div class="stock-chip">
+                  <span class="stock-dot ${esBajoStock ? 'low' : ''}"></span>
+                  <span>Stock: ${item.stock} unidades</span>
+                </div>
+                ${esBajoStock ? '<span style="font-size: 11px; color: var(--cr-red); font-weight: 700;">¡Últimas piezas!</span>' : ''}
+              </div>
+
+              <div class="card-actions">
+                <button class="btn-action" onclick='verDetalle(${JSON.stringify(item)})'>Calcular Desglose POO</button>
+              </div>
+            </div>
+          </div>
+        `;
+        contenedor.appendChild(tarjeta);
+      });
+    }
+
+    function filtrar(tipo, btn) {
+      if (btn) {
+        document.querySelectorAll(".pill-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      }
+      if (tipo === "all") {
+        renderizarProductos(catalogoActual);
+      } else {
+        const filtrados = catalogoActual.filter(p => p.tipo === tipo);
+        renderizarProductos(filtrados);
+      }
+    }
+
+    function verDetalle(item) {
+      const modal = document.getElementById("modal-detalle");
+      const contenido = document.getElementById("modal-contenido");
+
+      contenido.innerHTML = `
+        <span style="font-size: 12px; font-weight: 800; color: var(--cr-red); text-transform: uppercase;">Detalle Polimórfico • ${item.sku}</span>
+        <h3 style="font-family: var(--font-serif); font-size: 24px; margin: 8px 0 16px;">${item.nombre}</h3>
+        <div style="background: var(--cr-yellow-light); border: var(--border-dashed); padding: 16px; border-radius: 6px; margin-bottom: 16px; font-size: 14px;">
+          <p><strong>Clase POO instanciada:</strong> ${item.tipo}</p>
+          <p><strong>Precio Base:</strong> S/ ${parseFloat(item.precio_base).toFixed(2)}</p>
+          <p><strong>Método polimórfico:</strong> calcular_precio_final()</p>
+          <p><strong>Precio Liquidado:</strong> <span style="font-size: 20px; font-weight: 800; color: var(--cr-red);">S/ ${parseFloat(item.precio_final).toFixed(2)}</span></p>
+        </div>
+        <p style="font-size: 13px; color: var(--cr-black-50); line-height: 1.5; margin-bottom: 20px;">
+          ${item.tipo === "Electronico" 
+            ? "Se aplicó 18% de IGV base, más recargo de transporte condicionado al stock (" + item.costo_envio + " PEN) y descuento de 10% mediante DescuentoMixin." 
+            : "Se aplicó exención educativa y 12% adicional por ser catalogado como texto oficial de formación universitaria."}
+        </p>
+        <button class="btn-action" style="width: 100%;" onclick="cerrarModal()">Entendido</button>
+      `;
+
+      modal.classList.add("active");
+    }
+
+    function cerrarModal() {
+      document.getElementById("modal-detalle").classList.remove("active");
+    }
+
+    function abrirResumen() {
+      alert(`Catálogo Bragg Academic:\nTotal de ítems registrados: ${catalogoActual.length}\nEjecute 'python main.py' para gestionar el CLI y añadir nuevos productos.`);
+    }
+
+    window.onclick = function(e) {
+      const modal = document.getElementById("modal-detalle");
+      if (e.target === modal) {
+        cerrarModal();
+      }
+    };
+
+    cargarCatalogo();
+  </script>
+</body>
+</html>
