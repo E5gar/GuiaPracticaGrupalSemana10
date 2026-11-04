@@ -67,5 +67,28 @@
     "precio_final": 133.0,
     "autor": "Robert C. Martin",
     "tipo_libro": "literatura"
+  },
+  {
+    "sku": "LIB-800",
+    "nombre": "Prueba 1",
+    "tipo": "Libro",
+    "precio_base": 20.0,
+    "stock": 10,
+    "imagen_url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800",
+    "precio_final": 19.0,
+    "autor": "FIS",
+    "tipo_libro": "literatura"
+  },
+  {
+    "sku": "ELEC-700",
+    "nombre": "Prueba 21",
+    "tipo": "Electronico",
+    "precio_base": 213.0,
+    "stock": 12,
+    "imagen_url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800",
+    "precio_final": 263.34,
+    "garantia_meses": 2,
+    "garantia_estudiantil": false,
+    "costo_envio": 12.0
   }
 ]
