@@ -1,0 +1,71 @@
+[
+  {
+    "sku": "ELEC-101",
+    "nombre": "Calculadora Programable Texas Instruments TI-Nspire CX II CAS",
+    "tipo": "Electronico",
+    "precio_base": 940.0,
+    "stock": 18,
+    "imagen_url": "https://images.unsplash.com/photo-1594980596870-8aa52a78d8cd?w=800",
+    "precio_final": 1009.08,
+    "garantia_meses": 24,
+    "garantia_estudiantil": true,
+    "costo_envio": 12.0
+  },
+  {
+    "sku": "ELEC-102",
+    "nombre": "Tableta Digitalizadora Wacom Intuos Pro Paper Edition Lab",
+    "tipo": "Electronico",
+    "precio_base": 1450.0,
+    "stock": 35,
+    "imagen_url": "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=800",
+    "precio_final": 1478.2,
+    "garantia_meses": 12,
+    "garantia_estudiantil": true,
+    "costo_envio": 12.0
+  },
+  {
+    "sku": "ELEC-103",
+    "nombre": "Kit de Laboratorio FPGA Altera Cyclone IV + Osciloscopio Digital",
+    "tipo": "Electronico",
+    "precio_base": 2150.0,
+    "stock": 4,
+    "imagen_url": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800",
+    "precio_final": 2562.0,
+    "garantia_meses": 36,
+    "garantia_estudiantil": false,
+    "costo_envio": 25.0
+  },
+  {
+    "sku": "LIB-201",
+    "nombre": "Sistemas de Control para Ingeniería 8va Edición (Nise)",
+    "tipo": "Libro",
+    "precio_base": 180.0,
+    "stock": 45,
+    "imagen_url": "https://images.unsplash.com/photo-1532012164546-f432f2e3edd4?w=800",
+    "precio_final": 142.56,
+    "autor": "Norman S. Nise",
+    "tipo_libro": "universitario"
+  },
+  {
+    "sku": "LIB-202",
+    "nombre": "Manual de Prácticas de Redes Neuronales y Microcontroladores",
+    "tipo": "Libro",
+    "precio_base": 85.0,
+    "stock": 120,
+    "imagen_url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800",
+    "precio_final": 67.32,
+    "autor": "Facultad de Ingeniería de Sistemas UNCP",
+    "tipo_libro": "universitario"
+  },
+  {
+    "sku": "LIB-203",
+    "nombre": "Clean Code: A Handbook of Agile Software Craftsmanship",
+    "tipo": "Libro",
+    "precio_base": 140.0,
+    "stock": 15,
+    "imagen_url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800",
+    "precio_final": 133.0,
+    "autor": "Robert C. Martin",
+    "tipo_libro": "literatura"
+  }
+]
