@@ -80,7 +80,7 @@ def exportar_web_data(inventario: dict[str, Producto]):
 
 def menu() -> str:
     print("\n" + "=" * 58)
-    print("  BRAGG ACADEMIC MARKETPLACE | IS093A SEMANA 10")
+    print("  HUANCA ACADEMIC MARKETPLACE | IS093A SEMANA 10")
     print("=" * 58)
     print("  [1] Registrar nuevo material educativo")
     print("  [2] Listar catálogo polimórfico (CLI)")
@@ -191,7 +191,7 @@ def main():
                 exportar_web_data(inventario)
                 print(f"{Fore.GREEN}[OK]{Style.RESET_ALL} Catálogo web sincronizado en 'web/productos.json'.")
             elif opcion == "6":
-                print("\nFinalizando sesión en Bragg Academic Marketplace. ¡Éxito académico!\n")
+                print("\nFinalizando sesión en Huanca Academic Marketplace. ¡Éxito académico!\n")
                 break
             else:
                 raise ValidationError("Opción numérica no reconocida en el menú", campo="opción")
