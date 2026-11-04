@@ -144,7 +144,7 @@ Total ítems activos: 6
 Tipo de material (electronico/libro) > electronico
 Código SKU (Ej: ELEC-500, LIB-300) > cod-invalido
 
-⚠️  EXCEPCIÓN CAPTURADA: [ERR_VALIDACION] Campo 'SKU': Formato inválido. Debe seguir el patrón 'PRE-1234' (Ej: ELEC-101, LIB-204)
+EXCEPCIÓN CAPTURADA: [ERR_VALIDACION] Campo 'SKU': Formato inválido. Debe seguir el patrón 'PRE-1234' (Ej: ELEC-101, LIB-204)
 ```
 
 ![Excepción ValidationError capturada](docs/capturas/02_validation_error.png)
@@ -154,7 +154,7 @@ Código SKU (Ej: ELEC-500, LIB-300) > cod-invalido
 --- CONSULTA DE PRECIO FINAL & DESCUENTOS ---
 Ingrese el SKU a liquidar > ELEC-999
 
-🔍 BÚSQUEDA FALLIDA: [ERR_NO_ENCONTRADO] No se encontró Material Didáctico con identificador 'ELEC-999'
+BÚSQUEDA FALLIDA: [ERR_NO_ENCONTRADO] No se encontró Material Didáctico con identificador 'ELEC-999'
 ```
 
 ![Excepción NotFoundError capturada](docs/capturas/03_not_found_error.png)
